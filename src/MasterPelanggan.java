@@ -66,6 +66,11 @@ public class MasterPelanggan extends javax.swing.JDialog {
         jLabel4.setText("No Telphone");
 
         btnsimpan.setText("Simpan");
+        btnsimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsimpanActionPerformed(evt);
+            }
+        });
 
         tblpelanggan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -179,6 +184,16 @@ public class MasterPelanggan extends javax.swing.JDialog {
     private void btntambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntambahActionPerformed
     addState();
     }//GEN-LAST:event_btntambahActionPerformed
+
+    private void btnsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsimpanActionPerformed
+    Pelanggan pelanggan = new Pelanggan();
+    pelanggan.setKode(txtkode.getText());
+    pelanggan.setNama(txtnama.getText());
+    pelanggan.setAlamat(txtalamat.getText());
+    pelanggan.setNotelp(txtnotelp.getText());
+    daftarPelanggan.add(pelanggan);
+    initState();
+    }//GEN-LAST:event_btnsimpanActionPerformed
 
     /**
      * @param args the command line arguments
