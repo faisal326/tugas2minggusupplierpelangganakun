@@ -16,6 +16,9 @@ public class MasterAkun extends javax.swing.JDialog {
     public MasterAkun(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(this);
+        initState();
+      
     }
 
     /**
@@ -77,12 +80,17 @@ public class MasterAkun extends javax.swing.JDialog {
                 {null, null, null, null}
             },
             new String [] {
-                "Username", "Nama", "Password", "Title 4"
+                "Username", "Nama", "Password", "Status"
             }
         ));
         jScrollPane1.setViewportView(tblakun);
 
         btntambah.setText("Tambah");
+        btntambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntambahActionPerformed(evt);
+            }
+        });
 
         btnedit.setText("Edit");
         btnedit.addActionListener(new java.awt.event.ActionListener() {
@@ -186,6 +194,10 @@ public class MasterAkun extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_btneditActionPerformed
 
+    private void btntambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntambahActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btntambahActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -248,4 +260,18 @@ public class MasterAkun extends javax.swing.JDialog {
     private javax.swing.JTextField txtpass;
     private javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables
+
+    private void initState() {
+    //menonaktifkan inputan
+    txtusername.setEnabled(false);
+    txtnama.setEnabled(false);
+    txtpass.setEnabled(false);
+    cmbstatus.setEnabled(false);
+    //menonaktifkan tombol selain tambah simpan dan tutup
+    btncari.setEnabled(false);
+    btnreload.setEnabled(false);
+    btnedit.setEnabled(false);
+    btnhapus.setEnabled(false);
+    
+    }
 }
