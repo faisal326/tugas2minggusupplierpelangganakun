@@ -17,6 +17,7 @@ public class MasterSupplier extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(this);
+        initState();
     }
 
     /**
@@ -81,6 +82,11 @@ public class MasterSupplier extends javax.swing.JDialog {
         jScrollPane1.setViewportView(tblsupplier);
 
         btntambah.setText("Tambah");
+        btntambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntambahActionPerformed(evt);
+            }
+        });
 
         btnedit.setText("Edit");
 
@@ -180,6 +186,10 @@ public class MasterSupplier extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btntambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntambahActionPerformed
+    addState();
+    }//GEN-LAST:event_btntambahActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -221,7 +231,33 @@ public class MasterSupplier extends javax.swing.JDialog {
             }
         });
     }
-
+    
+    private void initState(){
+        //menonaktifkan inputan
+        txtkode.setEnabled(false);
+        txtnama.setEnabled(false);
+        txtalamat.setEnabled(false);
+        txttelp.setEnabled(false);
+        txtnamakontak.setEnabled(false);
+        //menonaktifkan tombol selain tambah ,tutup dan simpan
+        btncari.setEnabled(false);
+        btnreload.setEnabled(false);
+        btnedit.setEnabled(false);
+        btnhapus.setEnabled(false);
+        
+        
+        
+    }
+    private void addState(){
+        //mengaktifkan inputan
+        txtkode.setEnabled(true);
+        txtnama.setEnabled(true);
+        txtalamat.setEnabled(true);
+        txttelp.setEnabled(true);
+        txtnamakontak.setEnabled(true);
+        //mengaktifkan tombol simpan
+        btnsimpan.setEnabled(true);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncari;
     private javax.swing.JButton btnedit;
@@ -244,4 +280,6 @@ public class MasterSupplier extends javax.swing.JDialog {
     private javax.swing.JTextField txtnamakontak;
     private javax.swing.JTextField txttelp;
     // End of variables declaration//GEN-END:variables
+
+    
 }
