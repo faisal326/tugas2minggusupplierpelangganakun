@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ComboBoxModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -78,6 +79,11 @@ public class MasterAkun extends javax.swing.JDialog {
         });
 
         btnsimpan.setText("Simpan");
+        btnsimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsimpanActionPerformed(evt);
+            }
+        });
 
         btncari.setText("Cari");
 
@@ -212,6 +218,16 @@ public class MasterAkun extends javax.swing.JDialog {
     private void cmbstatusComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cmbstatusComponentAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbstatusComponentAdded
+
+    private void btnsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsimpanActionPerformed
+    Akun akun = new Akun();
+    akun.setUsername(txtusername.getText());
+    akun.setNama(txtnama.getText());
+    akun.setPassword(txtpass.getText());
+    akun.setStatus((String)cmbstatus.getSelectedItem());
+    daftarAkun.add(akun);
+    initState();
+    }//GEN-LAST:event_btnsimpanActionPerformed
 
     /**
      * @param args the command line arguments
